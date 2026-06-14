@@ -13,5 +13,13 @@
             Text="Toggle Dark/Light"
             Command="{Binding ToggleThemeCommand}"/>
 
+        <Button
+            Text="English"
+            Command="{Binding SetEnglishCommand}"/>
+
+        <Button
+            Text="Eesti"
+            Command="{Binding SetEstonianCommand}"/>
+
     </VerticalStackLayout>
 </ContentPage>

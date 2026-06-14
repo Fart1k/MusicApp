@@ -29,6 +29,8 @@ namespace MusicApp
             builder.Services.AddSingleton<SettingsViewModel>();
             builder.Services.AddSingleton<SettingsPage>();
             builder.Services.AddSingleton<App>();
+            builder.Services.AddSingleton<LanguageService>();
+            builder.Services.AddSingleton<LocalizationService>();
 
 #if DEBUG
             builder.Logging.AddDebug();
