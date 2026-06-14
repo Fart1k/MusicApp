@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MusicApp.ViewModels;
+using Microsoft.Extensions.Logging;
+using MusicApp.Views;
+using MusicApp.Services;
 
 namespace MusicApp
 {
@@ -14,9 +17,16 @@ namespace MusicApp
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            // DI
+            builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<DatabaseService>();
+            
+
+
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
