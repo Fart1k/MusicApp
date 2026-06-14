@@ -24,6 +24,11 @@ namespace MusicApp
             builder.Services.AddSingleton<DatabaseService>();
             builder.Services.AddSingleton(AudioManager.Current);
             builder.Services.AddSingleton<AudioServices>();
+            builder.Services.AddSingleton<SettingsService>();
+            builder.Services.AddSingleton<ThemeService>();
+            builder.Services.AddSingleton<SettingsViewModel>();
+            builder.Services.AddSingleton<SettingsPage>();
+            builder.Services.AddSingleton<App>();
 
 #if DEBUG
             builder.Logging.AddDebug();
