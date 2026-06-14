@@ -13,15 +13,12 @@ namespace MusicApp.Services
         }
 
         //Play
-        public async Task PlayAsync(string filename)
+        public async Task PlayAsync(string filePath)
         {
-            if (_player != null)
-            {
-                _player.Stop();
-                _player.Dispose();
-            }
+            _player?.Stop();
+            _player?.Dispose();
 
-            var stream = await FileSystem.OpenAppPackageFileAsync(filename);
+            var stream = File.OpenRead(filePath);
 
             _player = _audioManager.CreatePlayer(stream);
 

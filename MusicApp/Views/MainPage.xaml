@@ -16,8 +16,13 @@
             Text="{Binding NewArtist}"/>
 
         <Button
+            Text="Select MP3 File"
+            Command="{Binding PickFileCommand}"/>
+
+        <Button
             Text="Add Song"
             Command="{Binding AddCommand}"/>
+        
 
         <CollectionView ItemsSource="{Binding Songs}">
 
@@ -35,7 +40,8 @@
 
                             <Button
                                 Text="Play"
-                                Command="{Binding BindingContext.PlayCommand, Source={x:Reference Root}}"/>
+                                Command="{Binding BindingContext.PlayCommand, Source={x:Reference Root}}"
+                                CommandParameter="{Binding}"/>
 
                             <Button
                                 Text="Pause"
