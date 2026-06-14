@@ -21,6 +21,9 @@ namespace MusicApp.ViewModels
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand PickFileCommand { get; }
+        public ICommand MoveUpCommand { get; }
+        public ICommand MoveDownCommand { get; }
+
 
         public MainViewModel(DatabaseService db, AudioServices audioService)
         {
@@ -40,9 +43,30 @@ namespace MusicApp.ViewModels
                 _audioService.Pause();
             });
             PickFileCommand = new Command(async () => await PickFile());
-            
+            MoveUpCommand = new Command<Song>(MoveUp);
+            MoveDownCommand = new Command<Song>(MoveDown);
 
             Task.Run(async () => await Load());
+        }
+
+        //MoveUp
+        private void MoveUp(Song song)
+        {
+            var index = Songs.IndexOf(song);
+            if (index <= 0) return;
+
+            Songs.RemoveAt(index);
+            Songs.Insert(index - 1, song);
+        }
+
+        //MoveDown
+        private void MoveDown(Song song)
+        {
+            var index = Songs.IndexOf(song);
+            if (index < 0 || index >= Songs.Count - 1) return;
+
+            Songs.RemoveAt(index);
+            Songs.Insert(index + 1, song);
         }
 
         //Pick MP3 File From Phone

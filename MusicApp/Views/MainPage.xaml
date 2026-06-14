@@ -22,45 +22,81 @@
         <Button
             Text="Add Song"
             Command="{Binding AddCommand}"/>
-        
+
 
         <CollectionView ItemsSource="{Binding Songs}">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid 
-                        Padding="10"
-                        ColumnDefinitions="*, Auto">
 
-                        <VerticalStackLayout Grid.Column="0">
-                            <Label Text="{Binding Title}" FontSize="18" />
-                            <Label Text="{Binding Artist}" FontSize="14"/>
-                        </VerticalStackLayout>
-                        <VerticalStackLayout Grid.Column="1">
+                    <Frame 
+                        Padding="10" 
+                        Margin="5"
+                        CornerRadius="12"
+                        HasShadow="True"
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
 
-                            <Button
-                                Text="Play"
-                                Command="{Binding BindingContext.PlayCommand, Source={x:Reference Root}}"
-                                CommandParameter="{Binding}"/>
+                        <Grid ColumnDefinitions="*,Auto">
 
-                            <Button
-                                Text="Pause"
-                                Command="{Binding BindingContext.PauseCommand, Source={x:Reference Root}}"/>
+                            <VerticalStackLayout Grid.Column="0" Spacing="2">
 
-                            <Button
-                                Grid.Column="1"
-                                Text="Delete"
-                                Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Name=Root}}"
-                                CommandParameter="{Binding}"/>
+                                <Label 
+                                    Text="{Binding Title}"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
 
-                        </VerticalStackLayout>
-                        
-                    </Grid>
+                                <Label 
+                                    Text="{Binding Artist}"
+                                    FontSize="14"
+                                    Opacity="0.7"
+                                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+
+                                <HorizontalStackLayout Spacing="5">
+
+                                    <Button 
+                                        Text="▲"
+                                        WidthRequest="40"
+                                        Command="{Binding BindingContext.MoveUpCommand, Source={x:Reference Root}}"
+                                        CommandParameter="{Binding}" />
+
+                                    <Button 
+                                        Text="▼"
+                                        WidthRequest="40"
+                                        Command="{Binding BindingContext.MoveDownCommand, Source={x:Reference Root}}"
+                                        CommandParameter="{Binding}" />
+
+                                </HorizontalStackLayout>
+
+                                <Button 
+                                    Text="Play"
+                                    Command="{Binding BindingContext.PlayCommand, Source={x:Reference Root}}"
+                                    CommandParameter="{Binding}" />
+
+                                <Button 
+                                    Text="Pause"
+                                    Command="{Binding BindingContext.PauseCommand, Source={x:Reference Root}}" />   
+
+                                <Button 
+                                    Text="Delete"
+                                    Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Root}}"
+                                    CommandParameter="{Binding}" />
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Frame>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-            
+
         </CollectionView>
-        
+
     </VerticalStackLayout>
     
 </ContentPage>
