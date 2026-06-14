@@ -31,13 +31,24 @@
                             <Label Text="{Binding Title}" FontSize="18" />
                             <Label Text="{Binding Artist}" FontSize="14"/>
                         </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1">
 
-                        <Button
-                            Grid.Column="1"
-                            Text="Delete"
-                            Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Name=Root}}"
-                            CommandParameter="{Binding}"/>
+                            <Button
+                                Text="Play"
+                                Command="{Binding BindingContext.PlayCommand, Source={x:Reference Root}}"/>
 
+                            <Button
+                                Text="Pause"
+                                Command="{Binding BindingContext.PauseCommand, Source={x:Reference Root}}"/>
+
+                            <Button
+                                Grid.Column="1"
+                                Text="Delete"
+                                Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Name=Root}}"
+                                CommandParameter="{Binding}"/>
+
+                        </VerticalStackLayout>
+                        
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

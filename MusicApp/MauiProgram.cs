@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using MusicApp.Views;
 using MusicApp.Services;
+using Plugin.Maui.Audio;
 
 namespace MusicApp
 {
@@ -21,9 +22,8 @@ namespace MusicApp
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<DatabaseService>();
-            
-
-
+            builder.Services.AddSingleton(AudioManager.Current);
+            builder.Services.AddSingleton<AudioServices>();
 
 #if DEBUG
             builder.Logging.AddDebug();
