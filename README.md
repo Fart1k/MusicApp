@@ -36,13 +36,13 @@ Tehnoloogiad
 
 Projekti struktuur
 
-- Models/ – andmemudelid (Song)
+- Models/ - andmemudelid (Song)
 
-- ViewModels/ – rakenduse loogika
+- ViewModels/ - rakenduse loogika
 
-- Views/ – XAML kasutajaliides
+- Views/ - XAML kasutajaliides
 
-- Services/ – Audio, DB, Settings, Theme, Localization
+- Services/ - Audio, DB, Settings, Theme, Localization
 
-- Resources/Localization/ – tõlkefailid
+- Resources/Localization/ - tõlkefailid
 
