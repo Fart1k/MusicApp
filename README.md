@@ -6,43 +6,43 @@ MusicApp on .NET MAUI põhine multimeediarakendus, mis võimaldab kasutajal lisa
 
 Funktsionaalsused
 
-Muusikapalade lisamine, kustutamine ja haldamine
+- Muusikapalade lisamine, kustutamine ja haldamine
 
-MP3 failide valimine seadmest (FilePicker)
+- MP3 failide valimine seadmest (FilePicker)
 
-Muusika esitamine ja peatamine
+- Muusika esitamine ja peatamine
 
-Andmete salvestamine SQLite andmebaasis
+- Andmete salvestamine SQLite andmebaasis
 
-Lokaliseerimine (eesti ja inglise keel)
+- Lokaliseerimine (eesti ja inglise keel)
 
-Tume ja hele teema (ThemeService + Preferences)
+- Tume ja hele teema (ThemeService + Preferences)
 
-Laulude järjestuse muutmine (Move Up / Move Down)
+- Laulude järjestuse muutmine (Move Up / Move Down)
 
 Tehnoloogiad
 
-.NET MAUI
+- .NET MAUI
 
-C#
+- C#
 
-MVVM arhitektuur
+- MVVM arhitektuur
 
-SQLite (sqlite-net-pcl)
+- SQLite (sqlite-net-pcl)
 
-Plugin.Maui.Audio
+- Plugin.Maui.Audio
 
-.NET Localization (.resx)
+- .NET Localization (.resx)
 
 Projekti struktuur
 
-Models/ – andmemudelid (Song)
+- Models/ – andmemudelid (Song)
 
-ViewModels/ – rakenduse loogika
+- ViewModels/ – rakenduse loogika
 
-Views/ – XAML kasutajaliides
+- Views/ – XAML kasutajaliides
 
-Services/ – Audio, DB, Settings, Theme, Localization
+- Services/ – Audio, DB, Settings, Theme, Localization
 
-Resources/Localization/ – tõlkefailid
+- Resources/Localization/ – tõlkefailid
 
