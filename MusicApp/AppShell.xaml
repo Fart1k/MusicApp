@@ -7,12 +7,12 @@
     Title="MusicApp">
 
     <ShellContent
-        Title="Home"
+        Title="{Binding L[Home]}"
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
 
     <ShellContent
-        Title="Settings"
+        Title="{Binding L[Settings]}"
         ContentTemplate="{DataTemplate views:SettingsPage}"/>
 
 </Shell>

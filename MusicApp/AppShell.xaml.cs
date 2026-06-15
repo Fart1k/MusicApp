@@ -1,10 +1,13 @@
-﻿namespace MusicApp
+﻿using MusicApp.ViewModels;
+
+namespace MusicApp
 {
     public partial class AppShell : Shell
     {
-        public AppShell()
+        public AppShell(ShellViewModel vm)
         {
             InitializeComponent();
+            BindingContext = vm;
         }
     }
 }

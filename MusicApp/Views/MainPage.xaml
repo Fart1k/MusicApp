@@ -8,19 +8,19 @@
     <VerticalStackLayout Padding="20" Spacing="15">
 
         <Entry
-            Placeholder="Title"
+            Placeholder="{Binding L[Title]}"
             Text="{Binding NewTitle}"/>
 
         <Entry
-            Placeholder="Artist"
+            Placeholder="{Binding L[Artist]}"
             Text="{Binding NewArtist}"/>
 
         <Button
-            Text="Select MP3 File"
+            Text="{Binding L[PickFileCommand]}"
             Command="{Binding PickFileCommand}"/>
 
         <Button
-            Text="Add Song"
+            Text="{Binding L[AddCommand]}"
             Command="{Binding AddCommand}"/>
 
 
@@ -72,17 +72,17 @@
 
                                 </HorizontalStackLayout>
 
-                                <Button 
-                                    Text="Play"
+                                <Button
+                                    Text="{Binding BindingContext.L[Play], Source={x:Reference Root}}"
                                     Command="{Binding BindingContext.PlayCommand, Source={x:Reference Root}}"
                                     CommandParameter="{Binding}" />
 
-                                <Button 
-                                    Text="Pause"
-                                    Command="{Binding BindingContext.PauseCommand, Source={x:Reference Root}}" />   
+                                <Button
+                                    Text="{Binding BindingContext.L[Pause], Source={x:Reference Root}}"
+                                    Command="{Binding BindingContext.PauseCommand, Source={x:Reference Root}}" />
 
-                                <Button 
-                                    Text="Delete"
+                                <Button
+                                    Text="{Binding BindingContext.L[Delete], Source={x:Reference Root}}"
                                     Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Root}}"
                                     CommandParameter="{Binding}" />
 

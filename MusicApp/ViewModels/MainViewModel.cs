@@ -1,17 +1,21 @@
 ﻿using MusicApp.Models;
 using MusicApp.Services;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace MusicApp.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
         private readonly DatabaseService _db;
         private readonly AudioServices _audioService;
         private string _selectedFilePath;
-
+        public LocalizationService L { get; }
         public ObservableCollection<Song> Songs { get; set; } = new();
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public string NewTitle {  get; set; }
         public string NewArtist { get; set; }
@@ -25,10 +29,11 @@ namespace MusicApp.ViewModels
         public ICommand MoveDownCommand { get; }
 
 
-        public MainViewModel(DatabaseService db, AudioServices audioService)
+        public MainViewModel(DatabaseService db, AudioServices audioService, LocalizationService localizationService)
         {
             _db = db;
             _audioService = audioService;
+            L = localizationService;
 
             AddCommand = new Command(async () => await AddSong());
             DeleteCommand = new Command<Song>(async (song) => await DeleteSong(song));
@@ -123,5 +128,27 @@ namespace MusicApp.ViewModels
             await _db.DeleteSong(song);
             await Load();
         }
+
+        //Localization
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        //public void RefreshLocalization()
+        //{
+        //    OnPropertyChanged(nameof(AddSongText));
+        //    OnPropertyChanged(nameof(SelectFileText));
+        //    OnPropertyChanged(nameof(TitlePlaceholder));
+        //    OnPropertyChanged(nameof(ArtistPlaceholder));
+        //    OnPropertyChanged(nameof(PlayText));
+        //    OnPropertyChanged(nameof(PauseText));
+        //    OnPropertyChanged(nameof(DeleteText));
+        //    OnPropertyChanged(nameof(MoveUpText));
+        //    OnPropertyChanged(nameof(MoveDownText));
+        //    OnPropertyChanged(nameof(DarkModeText));
+        //    OnPropertyChanged(nameof(EnglishText));
+        //    OnPropertyChanged(nameof(EstonianText));
+        //}
+
     }
 }

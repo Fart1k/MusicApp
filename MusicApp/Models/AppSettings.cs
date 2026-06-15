@@ -6,6 +6,7 @@ namespace MusicApp.Models
 {
     public class AppSettings
     {
-        public bool IsDarkMode { get; set; }
+        public bool IsDarkMode { get; set; } = false;
+        public string Language { get; set; } = "en";
     }
 }

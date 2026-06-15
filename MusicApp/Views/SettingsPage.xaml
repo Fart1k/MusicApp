@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MusicApp.Views.SettingsPage"
-             Title="SettingsPage">
+             x:Class="MusicApp.Views.SettingsPage">
+    
     <VerticalStackLayout Padding="20" Spacing="15">
 
         <Label 
-            Text="Theme" 
+            Text="{Binding L[Theme]}" 
             FontSize="24"/>
 
         <Button 
-            Text="Toggle Dark/Light"
+            Text="{Binding L[DarkMode]}"
             Command="{Binding ToggleThemeCommand}"/>
 
+
+        <Label
+            Text="{Binding L[Localization]}"
+            FontSize="24"/>
         <Button
-            Text="English"
+            Text="{Binding L[English]}"
             Command="{Binding SetEnglishCommand}"/>
 
         <Button
-            Text="Eesti"
+            Text="{Binding L[Estonian]}"
             Command="{Binding SetEstonianCommand}"/>
 
     </VerticalStackLayout>
